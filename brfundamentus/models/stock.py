@@ -48,7 +48,9 @@ class Stock:
     gordon_valuation: Optional[float] = None
 
     def print_valuations(self):
-        print(f"{self.ticker}: {self.price} | {rv(self.greenblatt_rank)} | {rv(self.graham_valuation)} | {rv(self.bazin_valuation)} | {rv(self.gordon_valuation)} | {rv(self.average_growth)} | {rv(self.dy)}")
+        print(
+            f'{self.ticker}: {self.price} | {rv(self.greenblatt_rank)} | {rv(self.graham_valuation)} | {rv(self.bazin_valuation)} | {rv(self.gordon_valuation)} | {rv(self.average_growth)} | {rv(self.dy)}'
+        )
 
     def __repr__(self) -> str:
         return f'{self.ticker} ({self.price})'

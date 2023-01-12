@@ -14,7 +14,10 @@ class StockMarket:
         compute_greenblatt_rank(self.stocks)
 
     def get_stock_by_ticker(self, ticker: str):
-        return next((stock for stock in self.stocks if stock.ticker == ticker.upper()), None)
+        return next(
+            (stock for stock in self.stocks if stock.ticker == ticker.upper()),
+            None,
+        )
 
     @classmethod
     def read_from_csv(cls, path: str, market_risk: float = 0.15):
@@ -22,7 +25,8 @@ class StockMarket:
             all_info = file.readlines()
 
         all_stocks = build_list_of_stocks(
-            all_info[1:], all_info[0].split(";"), market_risk)
+            all_info[1:], all_info[0].split(';'), market_risk
+        )
         market = StockMarket(all_stocks)
 
         return market
@@ -50,9 +54,8 @@ class StockMarket:
             for stock in self.stocks
             if stock.__dict__[parameter] is not None
             and stock.ticker not in disconsider
-            and modifier * stock.__dict__[parameter]
-            > modifier * cut_criterion and
-            stock.ticker not in disconsider
+            and modifier * stock.__dict__[parameter] > modifier * cut_criterion
+            and stock.ticker not in disconsider
         ]
 
         if only_from:
@@ -98,8 +101,9 @@ class StockMarket:
             only_from=only_from,
         )
 
-        stocks_list.sort(key=lambda st: st.__dict__[
-                         parameter], reverse=not ascending)
+        stocks_list.sort(
+            key=lambda st: st.__dict__[parameter], reverse=not ascending
+        )
 
         max_index = min(num_stocks, len(stocks_list))
 
@@ -164,41 +168,36 @@ class StockMarket:
         return selected_stocks[:limit]
 
 
-if __name__ == "__main__":
-    file_path = "./statusinvest-busca-avancada.csv"
+if __name__ == '__main__':
+    file_path = './statusinvest-busca-avancada.csv'
 
     # teste get stock
     market = StockMarket.read_from_csv(file_path)
-    b3 = market.get_stock_by_ticker("B3SA3")
+    b3 = market.get_stock_by_ticker('B3SA3')
 
     # test get top 10 by criterion
-    print(b3.greenblatt_rank, b3.gordon_valuation,
-          b3.graham_valuation, b3.bazin_valuation)
+    print(
+        b3.greenblatt_rank,
+        b3.gordon_valuation,
+        b3.graham_valuation,
+        b3.bazin_valuation,
+    )
     selected_stocks = market.get_top_stocks_by_criterion(10, 'dy')
     print(selected_stocks)
 
     # test get top 10 by list of criteria
     criteria = [
-        {
-            'parameter': 'dy',
-            'cut_criterion': 0.03,
-            'reverse_cut': False
-        },
+        {'parameter': 'dy', 'cut_criterion': 0.03, 'reverse_cut': False},
         {
             'parameter': 'net_margin',
             'cut_criterion': 0.15,
-            'reverse_cut': False
-        }
+            'reverse_cut': False,
+        },
     ]
 
-    sort_by = {
-        'parameter': 'roe',
-        'ascending': True
-    }
+    sort_by = {'parameter': 'roe', 'ascending': True}
 
     selected_stocks = market.get_top_stocks_by_list_of_conditions(
-        conditions=criteria,
-        sort_by=sort_by,
-        num_stocks=10
+        conditions=criteria, sort_by=sort_by, num_stocks=10
     )
     print(selected_stocks)

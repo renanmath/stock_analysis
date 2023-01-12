@@ -25,7 +25,7 @@ def union_lists(list1: list, list2: list) -> list:
 # First, instantiate a StockMarket object
 # This class is responsible to perform the valuations
 # and has some useful filter methods
-market = StockMarket.read_from_csv("statusinvest-busca-avancada.csv")
+market = StockMarket.read_from_csv('statusinvest-busca-avancada.csv')
 print(len(market.stocks))
 
 # Then, define your own filters
@@ -68,8 +68,7 @@ second_list = union_lists(
     initial_list,
     market.get_top_stocks_by_list_of_conditions(
         conditions=filtros, sort_by=rank, num_stocks=600
-    )
-
+    ),
 )
 
 print('\nSegunda lista')
@@ -84,7 +83,7 @@ third_list = union_lists(
     second_list,
     market.get_top_stocks_by_list_of_conditions(
         conditions=filtros, sort_by=rank, num_stocks=600
-    )
+    ),
 )
 
 print('\nTerceira lista')
