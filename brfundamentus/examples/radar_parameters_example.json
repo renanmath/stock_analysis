@@ -1,0 +1,114 @@
+{
+    "common":[
+        {
+            "parameter": "fair_price_graham",
+            "cut_criterion": 150.00,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "fair_price_bazin",
+            "cut_criterion": 150.00,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "fair_price_gordon",
+            "cut_criterion": 150.00,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "dy",
+            "cut_criterion": 0.3,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "dy",
+            "cut_criterion": 0.04,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "gross_margin",
+            "cut_criterion": 0.2,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "net_margin",
+            "cut_criterion": 0.12,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "current_liquidity",
+            "cut_criterion": 1.05,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "price_per_profit",
+            "cut_criterion": 10,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "net_debt_to_equity",
+            "cut_criterion": 0.55,
+            "reverse_cut": true
+        },
+        {
+            "parameter": "roe",
+            "cut_criterion": 0.1,
+            "reverse_cut": false
+        }
+    
+    ],
+    "first": [
+        {
+            "parameter": "average_growth",
+            "cut_criterion": 0.1,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "graham_valuation",
+            "cut_criterion": 0.3,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "bazin_valuation",
+            "cut_criterion": 0.2,
+            "reverse_cut": false
+        }
+    ],
+    "second": [
+
+        {
+            "parameter": "graham_valuation",
+            "cut_criterion": 0.5,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "average_growth",
+            "cut_criterion": 0.2,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "greenblatt_rank",
+            "cut_criterion": 100,
+            "reverse_cut": true
+        }
+    ],
+    "third": [
+
+        {
+            "parameter": "graham_valuation",
+            "cut_criterion": 0.3,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "average_growth",
+            "cut_criterion": 0.1,
+            "reverse_cut": false
+        },
+        {
+            "parameter": "greenblatt_rank",
+            "cut_criterion": 50,
+            "reverse_cut": true
+        }
+    ]
+    
+}
