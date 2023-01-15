@@ -145,7 +145,7 @@ def build_list_of_stocks(
         splited = line.split(';')
         try:
             stock = build_single_stock(splited, headers, market_risk)
-        except ValidationError:
+        except (ValidationError, IndexError):
             continue
         stocks.append(stock)
 
