@@ -43,7 +43,7 @@ def build_single_stock(
 
     # extra indicators
     dps = dy * price if dy is not None else None
-    payout = dps / eps if dps is not None and eps is not None else None
+    payout = dps / eps if dps is not None and eps is not None and eps!=0 else None
 
     if roe is None or payout is None:
         expected_growth = None
