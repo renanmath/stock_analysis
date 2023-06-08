@@ -7,7 +7,11 @@ def parse_str_to_float(x: str, d: float = 1):
     try:
         return float(x.strip(' "\n\t').replace(',', '.')) / d
     except ValueError:
-        return None
+        try:
+            return float(x.replace('.', '').replace(',', '.').strip()) / d
+        except ValueError:
+            return None
+        
 
 
 def round_value(x, r=4):
