@@ -2,17 +2,11 @@ import json
 from copy import copy
 
 from brfundamentus.models.stock_market import StockMarket
+from brfundamentus.utils.utils import print_list_of_stocks
 
 """
 This script is an example of how to use some of the functionalities to run a radar of good stocks
 """
-
-
-def print_list(list_of_stocks: list):
-    for stock in list_of_stocks:
-        stock.print_valuations()
-
-    print('-' * 50)
 
 
 def union_lists(list1: list, list2: list) -> list:
@@ -54,7 +48,7 @@ def radar(path_to_csv: str, path_to_parameters:str):
     )
 
     print('\nPrimeira lista')
-    print_list(initial_list)
+    print_list_of_stocks(initial_list)
     print(len(initial_list))
 
     # second list
@@ -71,7 +65,7 @@ def radar(path_to_csv: str, path_to_parameters:str):
     )
 
     print('\nSegunda lista')
-    print_list(second_list)
+    print_list_of_stocks(second_list)
     print(len(second_list))
 
     filtros = parameters['third']
@@ -86,7 +80,7 @@ def radar(path_to_csv: str, path_to_parameters:str):
     )
 
     print('\nTerceira lista')
-    print_list(third_list)
+    print_list_of_stocks(third_list)
     print(len(third_list))
 
 
