@@ -11,13 +11,13 @@ def parse_str_to_float(x: str, d: float = 1):
             return float(x.replace('.', '').replace(',', '.').strip()) / d
         except ValueError:
             return None
-        
+
+
 def print_list_of_stocks(list_of_stocks: list):
     for stock in list_of_stocks:
         stock.print_valuations()
 
     print('-' * 50)
-        
 
 
 def round_value(x, r=4):

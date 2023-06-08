@@ -15,7 +15,8 @@ def union_lists(list1: list, list2: list) -> list:
 
     return union
 
-def radar(path_to_csv: str, path_to_parameters:str):
+
+def radar(path_to_csv: str, path_to_parameters: str):
     # First, instantiate a StockMarket object
     # This class is responsible to perform the valuations
     # and has some useful filter methods
@@ -30,7 +31,6 @@ def radar(path_to_csv: str, path_to_parameters:str):
     # In the repository we include a radar_parameters_example.json
     # Copy this file and change its name to radar_parameters.json
     # then set your own personal parameters
-
 
     with open(path_to_parameters) as file:
         parameters = json.load(file)
@@ -85,4 +85,7 @@ def radar(path_to_csv: str, path_to_parameters:str):
 
 
 if __name__ == '__main__':
-    radar('statusinvest-busca-avancada.csv', 'brfundamentus/examples/radar_parameters.json')
+    radar(
+        'statusinvest-busca-avancada.csv',
+        'brfundamentus/examples/radar_parameters.json',
+    )

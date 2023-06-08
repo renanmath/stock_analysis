@@ -8,6 +8,5 @@ setup(
     license='MIT',
     author='renan',
     author_email='renanmath13@gmail.com',
-    description='A package to handle fundamental analysis of Brazilian stocks'
+    description='A package to handle fundamental analysis of Brazilian stocks',
 )
-
